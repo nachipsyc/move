@@ -73,4 +73,6 @@ func moveFiles(files []os.FileInfo, target_file_names []string, source_dir strin
 			}
 		}
 	}
+
+	fmt.Println("move completed!!")
 }

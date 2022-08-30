@@ -6,7 +6,7 @@
     - JPEGファイルと同じファイル名で拡張子が".ARW"のファイルを移動する
 
 ### run
-- go run select.go 移動元ディレクトリ 移動先ディレクトリ
+- go run move.go 移動元ディレクトリ 移動先ディレクトリ
 
 ### example
 【移動元】C0001.JPG, C0001.ARW, C0002.ARW, C0003.JPG, C0003.ARW, C0004.JPG, C0004.ARW, C0005.ARW
