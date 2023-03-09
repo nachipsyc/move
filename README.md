@@ -1,26 +1,63 @@
-<h1>My Tools</h1>
+# About
 
-## move.go
-### about
-- JPEGファイルで写真を選別し、現像に適したRAWファイルを現像用ディレクトリに移動する
-    - JPEGファイルと同じファイル名で拡張子が".ARW"のファイルを移動する
+- JPEG ファイルで写真を選別し、現像に適した RAW ファイルを現像用ディレクトリに移動する
+  - JPEG ファイルと同じファイル名で拡張子が".ARW"のファイルを移動する
 
-### run
-- go run move.go 移動元ディレクトリ 移動先ディレクトリ
+# Run
 
-### example
-【移動元】C0001.JPG, C0001.ARW, C0002.ARW, C0003.JPG, C0003.ARW, C0004.JPG, C0004.ARW, C0005.ARW
+go run move.go *1 *2
+
+- \*1…取得元ディレクトリの相対パス
+- \*2…移動先先ディレクトリの相対パス
+
+## Sample
+
+- Desktop にある"hoge"フォルダの中にある、JPEG ファイルと同じファイル名の RAW ファイルを Desktop にある"moved_hoge"フォルダに書き出す
+  <br>
+  $ cd fuga/fuga/resize
+  <br>
+  $ go run resize.go ../../../Desktop/hoge ../../../Desktop/moved_hoge
+
+【移動元】
+<br>
+C0001.JPG
+<br>
+C0001.ARW
+<br>
+C0002.ARW
+<br>
+C0003.JPG
+<br>
+C0003.ARW
+<br>
+C0004.JPG
+<br>
+C0004.ARW
+<br>
+C0005.ARW
+<br>
 【移動先】
-
+<br>
+no file
+<br>
 ↓
-
-【移動元】C0001.JPG, C0002.ARW, C0003.JPG, C0004.JPG, C0005.ARW
-【移動先】C0001.ARW, C0003.ARW, C0004.ARW
-
-## resize.go
-### about
-
-### run
-
-### example
-
+<br>
+【移動元】
+<br>
+C0001.JPG
+<br>
+C0002.ARW
+<br>
+C0003.JPG
+<br>
+C0004.JPG
+<br>
+C0005.ARW
+<br>
+【移動先】
+<br>
+C0001.ARW
+<br>
+C0003.ARW
+<br>
+C0004.ARW
