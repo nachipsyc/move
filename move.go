@@ -26,16 +26,16 @@ func main() {
 		log.Fatal(err)
 		panic(err)
 	}
-	
+
 	// 拡張子が".JPG"のファイル名を取得する
 	source_file_names := getSourceFileNames(source_files)
-	
+
 	// 取得したJPEGファイルのファイル名を一致判定用に".RAF"に変換する
 	target_file_names := getTargetFileNames(source_file_names)
 
 	// 指定したファイルを移動元ディレクトリから移動先ディレクトリへ移動
 	moveFiles(source_files, target_file_names, source_dir, target_dir)
-	
+
 	fmt.Println("move completed!")
 }
 
@@ -54,7 +54,8 @@ func getSourceFileNames(files []os.FileInfo) []string {
 	var source_file_names []string
 	for _, file := range files {
 		// JPEGファイルだけを選別して、ファイル名のみをスライスに格納
-		if filepath.Ext(file.Name()) == ".JPG" {
+		file_extention := filepath.Ext(file.Name())
+		if file_extention == ".JPG" || file_extention == ".jpg" || file_extention == ".jpeg" {
 			source_file_names = append(source_file_names, file.Name())
 		}
 	}
@@ -66,7 +67,14 @@ func getTargetFileNames(file_names []string) []string {
 	var target_file_names []string
 	for _, file_name := range file_names {
 		// 拡張子を".JPG"から".RAF"に変換してスライスに格納
+		switch filepath.Ext(file_name) {
+		case ".JPG":
 			target_file_names = append(target_file_names, strings.Replace(file_name, ".JPG", ".RAF", -1))
+		case ".jpg":
+			target_file_names = append(target_file_names, strings.Replace(file_name, ".jpg", ".RAF", -1))
+		case ".jpeg":
+			target_file_names = append(target_file_names, strings.Replace(file_name, ".jpeg", ".RAF", -1))
+		}
 	}
 	// 格納したファイル名のスライスを返す
 	return target_file_names
